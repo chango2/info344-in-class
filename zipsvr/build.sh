@@ -2,7 +2,8 @@
 set -e
 echo "building go server for Linux..."
 #Linux users, execut: CGO_ENABLED=0 go build -a
-GOOS=linux go build 
-docker build -t drstearns/zipsvr .
-docker push drstearns/zipsvr
+CGO_ENABLED=0
+GOOS=linux go build -a
+docker build -t chango2/zipsvr .
+docker push chango2/zipsvr
 go clean
